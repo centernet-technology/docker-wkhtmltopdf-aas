@@ -22,7 +22,9 @@ payload_limit = process.env.PAYLOAD_LIMIT or '100kb'
 basic = auth.basic {}, (user, pass, cb) ->
   cb(user == process.env.USER && pass == process.env.PASS)
 
-app.use helmet()
+app.use helmet({
+  hsts: false
+})
 app.use '/healthcheck', health()
 app.use '/', express.static(__dirname + '/documentation')
 app.use auth.connect(basic)
