@@ -9,7 +9,7 @@ RUN apt-get update && \
     dpkg -i wkhtmltox_0.12.5-1.xenial_amd64.deb && \
     rm /usr/local/bin/wkhtmltoimage && \
     curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-    apt-get install -y nodejsww
+    apt-get install -y nodejs
 
 RUN npm install -g yarn coffee-script forever bootprint bootprint-openapi
 
