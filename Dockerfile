@@ -2,14 +2,14 @@ FROM ubuntu:16.04
 MAINTAINER Fabian Beuke <beuke@traum-ferienwohnungen.de>
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends npm wget fontconfig \
+    apt-get install -y --no-install-recommends npm wget libcurl3 fontconfig \
     libfontconfig1 libfreetype6 libjpeg-turbo8 libx11-6 libxext6 \
     libxrender1 xfonts-base xfonts-75dpi curl python-software-properties && \
-    wget -q https://downloads.wkhtmltopdf.org/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-trusty-amd64.deb && \
-    dpkg -i wkhtmltox-0.12.2.1_linux-trusty-amd64.deb && \
+    wget -q https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.xenial_amd64.deb && \
+    dpkg -i wkhtmltox_0.12.5-1.xenial_amd64.deb && \
     rm /usr/local/bin/wkhtmltoimage && \
     curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
-    apt-get install -y nodejs
+    apt-get install -y nodejsww
 
 RUN npm install -g yarn coffee-script forever bootprint bootprint-openapi
 
